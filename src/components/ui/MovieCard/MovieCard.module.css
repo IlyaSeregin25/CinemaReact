@@ -1,0 +1,23 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.img {
+  transition: transform 0.5s ease 0s;
+  width: 100%;
+  max-width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+.img:hover {
+  transform: scale(1.05);
+}
+.parag {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
