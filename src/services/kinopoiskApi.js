@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-const kinopoiskApiKey = import.meta.env.VITE_KINOPOISK_KEY;
+// eslint-disable-next-line no-unused-vars
+const kinopoiskApiKey = import.meta.env.VITE_KINOPOISK_KEY; //подключил напрямую
 console.log();
 const excludeGenres = ['', 'новости', 'для взрослых'];
 export const kinopoiskApi = createApi({
@@ -8,7 +9,8 @@ export const kinopoiskApi = createApi({
     baseUrl: 'https://kinopoiskapiunofficial.tech/api',
     //headers: { 'X-API-KEY': '3ed571b2-d214-4da4-a041-000dbce72ba2', 'Content-Type': 'application/json' },
     prepareHeaders: headers => {
-      headers.set('X-API-KEY', kinopoiskApiKey);
+      //headers.set('X-API-KEY', kinopoiskApiKey);
+      headers.set('X-API-KEY', '3ed571b2-d214-4da4-a041-000dbce72ba2');
       headers.set('Content-Type', 'application/json');
     },
   }),
