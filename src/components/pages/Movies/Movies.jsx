@@ -65,12 +65,17 @@ function Movies() {
             isEnableLoop //бесконечная прокрутка
             //isEnableAutoPlay
             autoPlayTime={5000}
-            height="320px"
+            //height="320px"
             breakpoints={{
-              375: {},
-              768: {
-                slidesPerView: 5,
+              275: { slidesPerView: 2, height: '200px' },
+              375: { slidesPerView: 3, height: '250px' },
+              600: {
+                slidesPerView: 4,
                 isEnableAutoPlay: true,
+              },
+              900: {
+                slidesPerView: 5,
+                height: '320px',
               },
             }}
           />

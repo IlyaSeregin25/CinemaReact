@@ -27,7 +27,7 @@ function ToggleColorMode({ children }) {
 
   return (
     <ColorModeContext.Provider value={{ mode, toggleColorMode }}>
-      <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </ColorModeContext.Provider>
   );
 }

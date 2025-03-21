@@ -26,7 +26,6 @@ import Search from '../Search';
 import { ColorModeContext } from '../../../context/ToggleColorMode';
 import { Brightness4, Brightness7 } from '@mui/icons-material';
 import { useTheme } from '@emotion/react';
-console.log();
 const Icon = ({ iconName }) => {
   const IconComponent = iconComponents[iconName];
   return <IconComponent />;
@@ -50,9 +49,9 @@ function NavBar() {
   return (
     <Slide appear={false} direction="down" in={!trigger}>
       <AppBar>
-        <Container maxWidth="lg">
+        <Container maxWidth="lg" sx={{ paddingInline: 0 }}>
           <Toolbar>
-            <IconButton color="inherit" onClick={handleDrawerToggle}>
+            <IconButton color="inherit" onClick={handleDrawerToggle} sx={{ alignContent: 'end' }}>
               <MenuIcon />
             </IconButton>
             <Drawer open={isOpen} onClose={handleDrawerToggle}>
@@ -88,7 +87,15 @@ function NavBar() {
                 </List>
               </Box>
             </Drawer>
-            <Stack flexDirection="row" justifyContent="space-between" alignItems="center" width="100%">
+            <Stack
+              display="flex"
+              flexDirection="row"
+              justifyContent="space-between"
+              alignItems="center"
+              gap="10px"
+              width="100%"
+              sx={{ flexWrap: { xs: 'wrap', sm: 'no-wrap' } }}
+            >
               <Typography component={RouterLink} to="/" sx={{ color: 'white', textDecoration: 'none' }} variant="h4">
                 betflix
               </Typography>

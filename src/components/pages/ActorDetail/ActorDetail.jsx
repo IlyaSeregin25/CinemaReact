@@ -7,7 +7,7 @@ import ErrorMessage from '../../ui/ErrorMessage/ErrorMessage';
 console.log();
 ///`actor/:id`
 function ActorDetail() {
-  const isDesctop = useMediaQuery('(min-width:600px)');
+  const isDesctop = useMediaQuery('(min-width:900px)');
 
   const navigate = useNavigate();
   const { id } = useParams();
@@ -25,12 +25,19 @@ function ActorDetail() {
   console.log();
   return responsePesonDetail.data ? (
     <Box mt={1}>
-      <Stack display="flex" flexDirection={isDesctop ? 'row' : 'column'} gap={1}>
+      <Stack
+        display="flex"
+        flexDirection={isDesctop ? 'row' : 'column'}
+        gap={1}
+        alignItems={isDesctop ? 'start' : 'center'}
+      >
         <img
           src={responsePesonDetail.data.posterUrl}
           style={{
-            width: isDesctop ? '220px' : '100%',
-            height: isDesctop ? '350px' : 'calc(100vh - 100px)',
+            //width: isDesctop ? '220px' : '100%',
+            //height: isDesctop ? '350px' : 'calc(100vh - 100px)',
+            width: '220px',
+            height: '350px',
             objectFit: 'cover',
             flexShrink: 1,
           }}

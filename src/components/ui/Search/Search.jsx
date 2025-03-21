@@ -4,7 +4,6 @@ import { useGetFilmsQuery } from '../../../services/kinopoiskApi';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSearchQuery } from '../../../features/searchQuerySlice';
 import { useNavigate } from 'react-router-dom';
-console.log();
 const movieTypes = {
   FILM: 'Фильм',
   TV_SERIES: 'Сериал',
@@ -12,28 +11,33 @@ const movieTypes = {
 };
 function Search() {
   const navigate = useNavigate();
-
   const { countries, genreId, order, type, year, page, keyword } = useSelector(state => state.searchQuerySlice);
-  useEffect(() => {}, []);
   const responseFilms = useGetFilmsQuery({ countries, genreId, order, type, year, page, keyword });
   const dispatch = useDispatch();
   const [input, setInput] = useState('');
+
   useEffect(() => {
     const setTimeoutId = setTimeout(() => {
       dispatch(setSearchQuery({ keyword: input }));
     }, 500);
-
     return () => clearTimeout(setTimeoutId);
   }, [input]);
-  console.log();
+
   return (
     <Autocomplete
       id="free-solo-demo"
       freeSolo
       sx={{
-        width: 300,
+        width: {
+          xs: '100%',
+          sm: 300,
+        },
         backgroundColor: 'rgba(255,255,255,0.15)',
         '& .MuiOutlinedInput-root': { '& fieldset': { border: 'none' } },
+        order: {
+          xs: 1,
+          sm: 0,
+        },
       }}
       onInputChange={(ev, value) => setInput(value)}
       options={responseFilms.data ? responseFilms.data.items : []}

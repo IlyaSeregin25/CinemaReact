@@ -36,7 +36,6 @@ export const kinopoiskApi = createApi({
     getSequelsAndPrequels: builder.query({
       query: ({ id }) => `/v2.1/films/${id}/sequels_and_prequels`,
       transformResponse: response => {
-        console.log();
         return response.map(el => ({ ...el, kinopoiskId: el.filmId }));
       },
     }),

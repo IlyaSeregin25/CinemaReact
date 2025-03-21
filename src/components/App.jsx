@@ -12,7 +12,7 @@ function App() {
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <Layout />, // Родитель с (хедером футором навбаром) и изменяющимися детьми
+      element: <Layout />, // Родитель с (хедером футором навбаром) и Outlet
       children: [
         {
           path: '/',

@@ -6,8 +6,15 @@ import NavBar from './ui/NavBar';
 
 const Layout = () => {
   return (
-    <Container fixed sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-      <Box sx={{ p: 4 }} />
+    <Container
+      fixed
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh',
+      }}
+    >
+      <Box sx={{ p: { xs: 7, sm: 4 } }} />
       <NavBar />
       <Outlet />
       <Footer />

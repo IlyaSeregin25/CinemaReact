@@ -27,10 +27,14 @@ function MovieDetail() {
   return (
     <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center" mt={1}>
       <Grid container spacing={2}>
-        <Grid item xs={4}>
-          <img src={responseFilm.data.posterUrl} alt={responseFilm.data.nameRu} width="100%" />
+        <Grid item xs={12} sm={4} md={4} sx={{ height: { xs: 300, md: 'auto' } }}>
+          <img
+            src={responseFilm.data.posterUrl}
+            alt={responseFilm.data.nameRu}
+            style={{ objectFit: 'contain', width: '100%', height: '100%' }}
+          />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={12} sm={8} md={6}>
           <Grid container>
             <Grid item xs={2}>
               <Button startIcon={<ArrowBack />} onClick={() => navigate(-1)} />
@@ -104,12 +108,19 @@ function MovieDetail() {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={2}>
+        <Grid item xs={12} md={2}>
           <Grid container>
             <Grid item xs={12}>
               <Typography variant="h6">В главных ролях</Typography>
             </Grid>
-            <Grid item xs={12}>
+            <Grid
+              item
+              xs={12}
+              display={{ xs: 'flex', md: 'grid' }}
+              flexDirection="row"
+              flexWrap="wrap"
+              columnGap="10px"
+            >
               {responseStaff.data
                 .filter(elem => elem.professionKey === 'ACTOR')
                 .slice(0, 10)
@@ -144,7 +155,7 @@ function MovieDetail() {
           <Typography gutterBottom variant="h5">
             Сиквелы и приквелы
           </Typography>
-          <Stack flexDirection="row" gap={2}>
+          <Stack flexDirection="row" gap={2} flexWrap="wrap" sx={{ justifyContent: { xs: 'center', sm: 'start' } }}>
             {responseSequelsAndPrequels.data.map(film => (
               <MovieCard key={film.filmId} movie={film} reload={true} />
             ))}
